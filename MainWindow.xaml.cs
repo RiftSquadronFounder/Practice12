@@ -20,5 +20,19 @@ namespace Practice12
         {
             InitializeComponent();
         }
+
+        private void AddingCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (AddingCheckBox.IsChecked == true)
+            {
+                BorderForAdding.Visibility = Visibility.Visible;
+                ButtonForAdding.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                BorderForAdding.Visibility = Visibility.Collapsed;
+                ButtonForAdding.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

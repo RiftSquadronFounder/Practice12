@@ -40,19 +40,20 @@
         </Border>
 
         <Button Content="Удалить дела" Background="DarkTurquoise" Grid.Row="2" Height="25" Width="100"></Button>
-        <Button Content="Добавить дело" Background="DarkTurquoise" Grid.Row="2" Grid.Column="1" Height="25" Width="100"></Button>
+        <Button Content="Добавить дело" Background="DarkTurquoise" Grid.Row="2" Grid.Column="1" Height="25" Width="100" Name="ButtonForAdding"></Button>
 
-        <CheckBox Content="Добавление новых дел" VerticalAlignment="Bottom" Grid.Column="1"></CheckBox>
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Gray" Background="LightYellow" BorderThickness="1" Margin="10">
+        <CheckBox Content="Добавление новых дел" VerticalAlignment="Bottom" Grid.Column="1" Name="AddingCheckBox" IsChecked="True" Click="AddingCheckBox_Click"></CheckBox>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Gray" Background="LightYellow" BorderThickness="1" Margin="10" Name="BorderForAdding">
             <DockPanel>
-            <StackPanel DockPanel.Dock="Top">
-                <TextBlock Text="Название:" Margin="5"></TextBlock>
-                <TextBox Margin="5"></TextBox>
-                <TextBlock Text="Выполнить до:" Margin="5"></TextBlock>
-                <DatePicker Margin="5"></DatePicker>
-                <TextBlock Text="Описание:" Margin="5"></TextBlock>
-            </StackPanel>
-                <TextBox Margin="5"></TextBox>
+                <StackPanel DockPanel.Dock="Top">
+                    <TextBlock Text="Название:" Margin="5"></TextBlock>
+                    <TextBox Margin="5"></TextBox>
+                    <TextBlock Text="Выполнить до:" Margin="5"></TextBlock>
+                    <DatePicker Margin="5"></DatePicker>
+                    <TextBlock Text="Описание:" Margin="5"></TextBlock>
+                </StackPanel>
+
+                <TextBox  Margin="5" MaxHeight="160" DockPanel.Dock="Top"></TextBox>
             </DockPanel>
         </Border>
     </Grid>
