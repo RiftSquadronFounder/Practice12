@@ -1,0 +1,59 @@
+﻿<Window x:Class="Practice12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice12"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Список дел" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26"></TextBlock>
+        <Border Grid.Row="1" BorderBrush="Gray" Background="LightYellow" BorderThickness="1" Margin="10">
+            <StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Приготовить покушать"></TextBlock>
+                    <TextBlock Text="15.01.2024"></TextBlock>
+                    <TextBlock Text="Нет описания" FontSize="10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="5">
+                    <TextBlock Text="Поработать"></TextBlock>
+                    <TextBlock Text="20.01.2024"></TextBlock>
+                    <TextBlock Text="Съездить на совещание в Москву" FontSize="10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="5">
+                    <TextBlock Text="Отдохнуть"></TextBlock>
+                    <TextBlock Text="01.02.2024"></TextBlock>
+                    <TextBlock Text="Съездить в отпуск в Сочи" FontSize="10"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Button Content="Удалить дела" Background="DarkTurquoise" Grid.Row="2" Height="25" Width="100"></Button>
+        <Button Content="Добавить дело" Background="DarkTurquoise" Grid.Row="2" Grid.Column="1" Height="25" Width="100"></Button>
+
+        <CheckBox Content="Добавление новых дел" VerticalAlignment="Bottom" Grid.Column="1"></CheckBox>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Gray" Background="LightYellow" BorderThickness="1" Margin="10">
+            <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Text="Название:" Margin="5"></TextBlock>
+                <TextBox Margin="5"></TextBox>
+                <TextBlock Text="Выполнить до:" Margin="5"></TextBlock>
+                <DatePicker Margin="5"></DatePicker>
+                <TextBlock Text="Описание:" Margin="5"></TextBlock>
+            </StackPanel>
+                <TextBox Margin="5"></TextBox>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
