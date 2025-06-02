@@ -5,56 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice12"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="400">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.15*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Список дел" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26"></TextBlock>
-        <Border Grid.Row="1" BorderBrush="Gray" Background="LightYellow" BorderThickness="1" Margin="10">
-            <StackPanel>
-                <StackPanel Margin="5">
-                    <TextBlock Text="Приготовить покушать"></TextBlock>
-                    <TextBlock Text="15.01.2024"></TextBlock>
-                    <TextBlock Text="Нет описания" FontSize="10"></TextBlock>
-                </StackPanel>
 
-                <StackPanel Margin="5">
-                    <TextBlock Text="Поработать"></TextBlock>
-                    <TextBlock Text="20.01.2024"></TextBlock>
-                    <TextBlock Text="Съездить на совещание в Москву" FontSize="10"></TextBlock>
-                </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-                <StackPanel Margin="5">
-                    <TextBlock Text="Отдохнуть"></TextBlock>
-                    <TextBlock Text="01.02.2024"></TextBlock>
-                    <TextBlock Text="Съездить в отпуск в Сочи" FontSize="10"></TextBlock>
-                </StackPanel>
-            </StackPanel>
-        </Border>
+        <ProgressBar Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" Minimum="0" Name="ProgressBarOnTasks" Background="LightYellow" Foreground="DarkTurquoise"></ProgressBar>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Name="ProgressTextOnTasks" Text="0/0" FontSize="20"></TextBlock>
+        
+        <TextBlock Text="Список дел" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" FontWeight="Bold" Foreground="DarkTurquoise" FontSize="26"></TextBlock>
+        <DataGrid AlternatingRowBackground="#FFFDFAF1" Grid.ColumnSpan="2"  Grid.Row="1" BorderBrush="Black"  HeadersVisibility="None" Margin="10" Background="LightYellow" Name="ToDoGrid" AutoGenerateColumns="false" CanUserAddRows="False" CanUserDeleteRows="False">
 
-        <Button Content="Удалить дела" Background="DarkTurquoise" Grid.Row="2" Height="25" Width="100"></Button>
-        <Button Content="Добавить дело" Background="DarkTurquoise" Grid.Row="2" Grid.Column="1" Height="25" Width="100" Name="ButtonForAdding"></Button>
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsFinished}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Width="2*" Binding="{Binding Path=Name}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Width="1*" Binding="{Binding Path=Date, StringFormat='dd.MM.yyyy'}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Background="LightBlue" Click="Delete_Click"><Image Height="15" Width="10" Source="/Sources/delete.png" /></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
 
-        <CheckBox Content="Добавление новых дел" VerticalAlignment="Bottom" Grid.Column="1" Name="AddingCheckBox" IsChecked="True" Click="AddingCheckBox_Click"></CheckBox>
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Gray" Background="LightYellow" BorderThickness="1" Margin="10" Name="BorderForAdding">
-            <DockPanel>
-                <StackPanel DockPanel.Dock="Top">
-                    <TextBlock Text="Название:" Margin="5"></TextBlock>
-                    <TextBox Margin="5"></TextBox>
-                    <TextBlock Text="Выполнить до:" Margin="5"></TextBlock>
-                    <DatePicker Margin="5"></DatePicker>
-                    <TextBlock Text="Описание:" Margin="5"></TextBlock>
-                </StackPanel>
+            
+            
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBox MaxHeight="55" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Text="{Binding Path=Description}"></TextBox>
+                    </StackPanel>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
 
-                <TextBox  Margin="5" MaxHeight="160" DockPanel.Dock="Top"></TextBox>
-            </DockPanel>
-        </Border>
+        <Button Name="DeleteButtonGui" Background="DarkTurquoise" Grid.Row="0" Grid.Column="1" Margin="10" Click="ButtonForAdding_Click">
+            <Image Source="/Sources/add.png" />
+        </Button>
+
+        
     </Grid>
 </Window>

@@ -16,23 +16,61 @@ namespace Practice12
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<TaskClass> tasks = new List<TaskClass>();
         public MainWindow()
         {
             InitializeComponent();
+            
+            tasks.Add(new TaskClass("Задача", DateTime.Today, "Description"));
+
+            ToDoGrid.ItemsSource = tasks;
+            EndToDo();
+        }
+        
+
+        private void ButtonForAdding_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new WindowAddTask(this);
+            newWindow.Show();
+            EndToDo();
         }
 
-        private void AddingCheckBox_Click(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (AddingCheckBox.IsChecked == true)
+            tasks.RemoveAt(ToDoGrid.SelectedIndex);
+            ToDoGrid.Items.Refresh();
+            EndToDo();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+        
+            tasks[ToDoGrid.SelectedIndex].IsFinished = true;
+            EndToDo();
+        }
+        private void EndToDo() {
+            int HowManyIsChecked = 0;
+            for (int i = 0; i < tasks.Count; i++)
             {
-                BorderForAdding.Visibility = Visibility.Visible;
-                ButtonForAdding.Visibility = Visibility.Visible;
+                if (tasks[i].IsFinished == true)
+                {
+                    HowManyIsChecked += 1;
+                }
             }
-            else
-            {
-                BorderForAdding.Visibility = Visibility.Collapsed;
-                ButtonForAdding.Visibility = Visibility.Collapsed;
-            }
+            ProgressTextOnTasks.Text = $"{HowManyIsChecked}/{tasks.Count}";
+            ProgressBarOnTasks.Maximum = tasks.Count;
+            ProgressBarOnTasks.Value = HowManyIsChecked;
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            tasks[ToDoGrid.SelectedIndex].IsFinished = false;
+            EndToDo();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EndToDo();
         }
     }
 }
