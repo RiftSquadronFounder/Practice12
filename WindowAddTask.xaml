@@ -6,31 +6,39 @@
         xmlns:local="clr-namespace:Practice12"
         mc:Ignorable="d"
         Title="WindowAddTask" Height="450" Width="400">
+
+    <Window.Resources>
+        <Style TargetType="DatePicker">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="BorderBrush" Value="#5EBEC4"></Setter>
+            <Setter Property="BorderThickness" Value="1.5"></Setter>
+            <Setter Property="SelectedDateFormat" Value="Long"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.15*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Новое дело" Foreground="DarkTurquoise" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26"></TextBlock>
+        <TextBlock Text="Новое дело" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource ResourceKey=HeaderStyle}"></TextBlock>
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="White" Background="LightYellow" BorderThickness="1" Margin="10" Name="BorderForAdding">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
                     <TextBlock Text="Название:"  Margin="5"></TextBlock>
-                    <TextBox Margin="5" BorderBrush="DarkTurquoise" BorderThickness="1.5"  Name="NameTextBoxGui"></TextBox>
+                    <TextBox Margin="5" BorderBrush="#5EBEC4" BorderThickness="1.5"  Name="NameTextBoxGui"></TextBox>
                     <TextBlock Text="Выполнить до:" Margin="5"></TextBlock>
-                    <DatePicker Margin="5" Name="DatePickerGui" BorderBrush="DarkTurquoise" BorderThickness="1.5" SelectedDateFormat="Short">
-                    
-                    </DatePicker>
+                    <DatePicker  Name="DatePickerGui"></DatePicker>
                     <TextBlock Text="Описание:" Margin="5" ></TextBlock>
 
-                    <TextBox VerticalScrollBarVisibility="Auto" BorderBrush="DarkTurquoise" BorderThickness="1.5"  AcceptsReturn="True" Margin="5" MaxHeight="140" Name="DescriptionGui"></TextBox>
+                    <TextBox VerticalScrollBarVisibility="Auto" BorderBrush="#5EBEC4" BorderThickness="1.5"  AcceptsReturn="True" Margin="5" MaxHeight="140" Name="DescriptionGui"></TextBox>
                 </StackPanel>
 
             </DockPanel>
         </Border>
-        <Button Content="Сохранить дело" Background="DarkTurquoise" Grid.Row="2" Grid.Column="1" Height="25" Width="100" Name="ButtonForAdding" Click="ButtonForAdding_Click"></Button>
+        <Button Content="Сохранить дело" Background="#5EBEC4" Grid.Row="2" Grid.Column="1" Height="25" Width="100" Name="ButtonForAdding" Click="ButtonForAdding_Click"></Button>
 
     </Grid>
 </Window>

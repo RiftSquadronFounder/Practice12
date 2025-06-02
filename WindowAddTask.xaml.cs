@@ -37,7 +37,7 @@ namespace Practice12
             catch { }
             try
             {
-                tasks.Add(new TaskClass(NameTextBoxGui.Text, date, DescriptionGui.Text)); 
+                tasks.Add(new TaskClass(NameTextBoxGui.Text, date, DescriptionGui.Text, _owner.EndToDo)); 
             }
             catch { Console.WriteLine("Задача не была добавлена, Непредвиденная ошибка"); }
             finally { ToDoGrid.Items.Refresh(); this.Close(); }

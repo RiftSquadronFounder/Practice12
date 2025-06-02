@@ -21,7 +21,7 @@ namespace Practice12
         {
             InitializeComponent();
             
-            tasks.Add(new TaskClass("Задача", DateTime.Today, "Description"));
+            tasks.Add(new TaskClass("Задача", DateTime.Today, "Description", EndToDo));
 
             ToDoGrid.ItemsSource = tasks;
             EndToDo();
@@ -42,13 +42,8 @@ namespace Practice12
             EndToDo();
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
         
-            tasks[ToDoGrid.SelectedIndex].IsFinished = true;
-            EndToDo();
-        }
-        private void EndToDo() {
+        public void EndToDo() {
             int HowManyIsChecked = 0;
             for (int i = 0; i < tasks.Count; i++)
             {
@@ -62,13 +57,7 @@ namespace Practice12
             ProgressBarOnTasks.Value = HowManyIsChecked;
         }
 
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            tasks[ToDoGrid.SelectedIndex].IsFinished = false;
-            EndToDo();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ToDoGrid_CurrentCellChanged(object sender, EventArgs e)
         {
             EndToDo();
         }
