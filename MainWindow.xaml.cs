@@ -23,7 +23,7 @@ namespace Practice12
             
             tasks.Add(new TaskClass("Задача", DateTime.Today, "Description", EndToDo));
 
-            ToDoGrid.ItemsSource = tasks;
+            ListItems.ItemsSource = tasks;
             EndToDo();
         }
         
@@ -37,8 +37,8 @@ namespace Practice12
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            tasks.RemoveAt(ToDoGrid.SelectedIndex);
-            ToDoGrid.Items.Refresh();
+            tasks.RemoveAt(ListItems.SelectedIndex);
+            ListItems.Items.Refresh();
             EndToDo();
         }
 

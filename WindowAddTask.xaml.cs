@@ -29,7 +29,7 @@ namespace Practice12
         private void ButtonForAdding_Click(object sender, RoutedEventArgs e)
         {
             var tasks = _owner.tasks;
-            var ToDoGrid = _owner.ToDoGrid;
+            var ToDoGrid = _owner.ListItems;
             DateTime date = DateTime.Today;
             try {
                 date = (DateTime)DatePickerGui.SelectedDate;
