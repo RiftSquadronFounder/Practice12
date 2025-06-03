@@ -37,10 +37,10 @@ namespace Practice12
             catch { }
             try
             {
-                tasks.Add(new TaskClass(NameTextBoxGui.Text, date, DescriptionGui.Text, _owner.EndToDo)); 
+                tasks.Add(new TaskClass(NameTextBoxGui.Text, date, DescriptionGui.Text)); 
             }
             catch { Console.WriteLine("Задача не была добавлена, Непредвиденная ошибка"); }
-            finally { ToDoGrid.Items.Refresh(); this.Close(); }
+            finally { ToDoGrid.Items.Refresh(); _owner.EndToDo(); this.Close(); }
            
 
         }

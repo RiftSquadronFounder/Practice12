@@ -12,8 +12,6 @@ namespace Practice12
         private DateTime taskDate_ = DateTime.Today;
         private string taskDescription_ = "-";
         private bool isFinished = false;
-        public delegate void RenewFunctionDelegate();
-        private RenewFunctionDelegate renewFunction_;
         public TaskClass()
         {
             this.taskName_ = "Задача";
@@ -22,7 +20,7 @@ namespace Practice12
             this.isFinished = false;
         }
 
-        public TaskClass(string name, DateTime date, string description, RenewFunctionDelegate renewFunc)
+        public TaskClass(string name, DateTime date, string description)
         {
             if (name != null && name.Trim() != "")
             {
@@ -42,7 +40,6 @@ namespace Practice12
                 this.taskDescription_ = description;
             }
             else { this.taskDescription_ = "Нет описания"; }
-            renewFunction_ = renewFunc;
             this.isFinished = false;
         }
 
@@ -50,7 +47,7 @@ namespace Practice12
         public string Name { get { return this.taskName_; } set { this.taskName_ = value; } }
         public DateTime Date { get { return this.taskDate_; } set { this.taskDate_ = value; } }
         public string Description { get { return this.taskDescription_; } set { this.taskDescription_ = value; } }
-        public bool IsFinished { get { return this.isFinished; } set { this.isFinished = value; renewFunction_(); } }
+        public bool IsFinished { get { return this.isFinished; } set { this.isFinished = value; } }
 
     }
 }
