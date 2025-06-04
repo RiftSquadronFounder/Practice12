@@ -12,12 +12,14 @@
     <None Remove="Sources\add.png" />
     <None Remove="Sources\delete.png" />
     <None Remove="Sources\icon.png" />
+    <None Remove="Sources\save.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Sources\add.png" />
     <Resource Include="Sources\delete.png" />
     <Resource Include="Sources\icon.png" />
+    <Resource Include="Sources\save.png" />
   </ItemGroup>
 
 </Project>

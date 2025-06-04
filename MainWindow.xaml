@@ -1,4 +1,4 @@
-﻿<Window x:Class="Practice12.MainWindow"
+﻿<Window Closing="MainWindow_Closing" x:Class="Practice12.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -66,14 +66,15 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.25*"></ColumnDefinition>
+            <ColumnDefinition Width="0.25*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ProgressBar Grid.Row="2" Grid.ColumnSpan="2" Name="ProgressBarOnTasks" ></ProgressBar>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Name="ProgressTextOnTasks" Text="0/0" FontSize="20"></TextBlock>
+        <ProgressBar Grid.Row="2" Grid.ColumnSpan="3" Name="ProgressBarOnTasks" ></ProgressBar>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="3" Name="ProgressTextOnTasks" Text="0/0" FontSize="20"></TextBlock>
 
         <TextBlock Text="Список дел" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Style="{DynamicResource ResourceKey=HeaderStyle}"></TextBlock>
-        <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2" Name="ListItems"  Background="#FFFFFAD6" Margin="5">
+        <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Name="ListItems"  Background="#FFFFFAD6" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Stretch">
@@ -103,8 +104,12 @@
 
         </ListBox>
 
-        <Button Name="DeleteButtonGui" Background="#5EBEC4" Grid.Row="0" Grid.Column="1" Margin="5" Click="ButtonForAdding_Click">
+        <Button Name="DeleteButtonGui" Background="#5EBEC4" Grid.Row="0" Grid.Column="2" Margin="5" Click="ButtonForAdding_Click">
             <Image Source="/Sources/add.png" />
+        </Button>
+        <Button Name="SaveButtonGui" Background="#5EBEC4" Grid.Row="0" Grid.Column="1" Margin="5" Click="SaveButtonGui_Click">
+            <Image Source="/Sources/save.png" />
+
         </Button>
 
 
