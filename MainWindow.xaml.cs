@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -81,5 +82,8 @@ namespace Practice12
             //todo.IsFinished = true;
             EndToDo();
         }
+
+        
+
     }
 }
