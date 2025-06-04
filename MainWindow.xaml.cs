@@ -106,24 +106,30 @@ namespace Practice12
         }
         public void SaveTxtFile()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Текстовый файл(*.txt)| *.txt";
-            saveFileDialog.DefaultDirectory = Directory.GetCurrentDirectory();
-            saveFileDialog.FileName = "Список дел.txt";
-            if (saveFileDialog.ShowDialog() == true) {
-                StringBuilder stringBuilder = new StringBuilder();
-                for (int i = 0; i < tasks.Count; i++) {
-                    if (tasks[i].IsFinished)
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Текстовый файл(*.txt)| *.txt";
+                saveFileDialog.DefaultDirectory = Directory.GetCurrentDirectory();
+                saveFileDialog.FileName = "Список дел.txt";
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    for (int i = 0; i < tasks.Count; i++)
                     {
-                        stringBuilder.AppendLine($"✓{tasks[i].Name}");
-                    }
-                    else { stringBuilder.AppendLine($" {tasks[i].Name}"); }
+                        if (tasks[i].IsFinished)
+                        {
+                            stringBuilder.AppendLine($"✓{tasks[i].Name}");
+                        }
+                        else { stringBuilder.AppendLine($" {tasks[i].Name}"); }
 
-                    stringBuilder.AppendLine($"\n{tasks[i].Description}");
-                    stringBuilder.AppendLine($"\n{tasks[i].Date.ToShortDateString()}\n\n");
+                        stringBuilder.AppendLine($"\n{tasks[i].Description}");
+                        stringBuilder.AppendLine($"\n{tasks[i].Date.ToShortDateString()}\n\n");
+                    }
+                    File.WriteAllText(saveFileDialog.FileName, stringBuilder.ToString());
                 }
-                File.WriteAllText(saveFileDialog.FileName, stringBuilder.ToString());
             }
+            catch (Exception ex) { }
         }
         public static void Safe(List<TaskClass> tasks, string filePath)
         {
