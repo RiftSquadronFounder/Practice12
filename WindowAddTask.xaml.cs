@@ -46,4 +46,3 @@ namespace Practice12
         }
     }
 }
-//Тест ветвей
