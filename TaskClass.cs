@@ -22,6 +22,13 @@ namespace Practice12
 
         public TaskClass(string name, DateTime date, string description)
         {
+            int a=9;
+
+            int b = 10;
+
+            a = b = 15;
+
+
             if (name != null && name.Trim() != "")
             {
                 this.taskName_ = name;

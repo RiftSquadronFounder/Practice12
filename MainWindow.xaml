@@ -88,7 +88,9 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                             <CheckBox x:Name="ItemChecked" IsChecked="{Binding Path=IsFinished, Mode=TwoWay}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
-                            <TextBlock Style="{StaticResource LineThroughText}" x:Name="NameTask" Text="{Binding Path=Name}" Margin="5" HorizontalAlignment="Stretch"></TextBlock>
+                            <ScrollViewer MaxWidth="200" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                <TextBlock Style="{StaticResource LineThroughText}" x:Name="NameTask" Text="{Binding Path=Name}" Margin="5" HorizontalAlignment="Stretch"></TextBlock>
+                            </ScrollViewer>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource MarkDateWColor}" Text="{Binding Path=Date, StringFormat='Дата: {0:dd.MM.yyyy}'}" VerticalAlignment="Center"></TextBlock>
