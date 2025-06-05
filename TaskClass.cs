@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +23,6 @@ namespace Practice12
 
         public TaskClass(string name, DateTime date, string description)
         {
-            int a=9;
-
-            int b = 10;
-
-            a = b = 15;
-
 
             if (name != null && name.Trim() != "")
             {

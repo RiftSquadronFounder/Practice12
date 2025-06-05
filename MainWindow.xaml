@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice12"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400">
+        Title="Ваши делишки :)" Height="450" Width="400" ResizeMode="NoResize">
 
 
     <Window.Resources>
@@ -74,7 +74,7 @@
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="3" Name="ProgressTextOnTasks" Text="0/0" FontSize="20"></TextBlock>
 
         <TextBlock Text="Список дел" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Style="{DynamicResource ResourceKey=HeaderStyle}"></TextBlock>
-        <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Name="ListItems"  Background="#FFFFFAD6" Margin="5">
+        <ListBox MouseDoubleClick="ListItems_MouseDoubleClick" HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Name="ListItems"  Background="#FFFFFAD6" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Stretch">

@@ -165,5 +165,19 @@ namespace Practice12
             return new List<TaskClass>();
         }
 
+        private void ListItems_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var taskChangeWin = new ChangeTaskWindow(this, tasks[ListItems.SelectedIndex], ListItems.SelectedIndex);
+                taskChangeWin.Show();
+            }
+            catch { }
+        }
+
+        public void RewriteTask(string newName, DateTime newDate, string newDescription, int taskIndex) { 
+            tasks[taskIndex].Name = newName;
+            tasks[taskIndex].Description = newDescription;
+            tasks[taskIndex].Date = newDate;        }
     }
 }
