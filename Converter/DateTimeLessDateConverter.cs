@@ -6,16 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Practice12
+namespace Practice12.Converter
 {
-    internal class DateTimeTmrwDateConverter : IValueConverter
+    internal class DateTimeLessDateConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
-            if (value is DateTime date)
+            var val = value as DateTime?;
+            if (val != null)
             {
-                return date.Date == DateTime.Today.AddDays(1);
+                return DateTime.Today > val;
             }
             return false;
         }

@@ -4,15 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice12"
+        xmlns:converter="clr-namespace:Practice12.Converter"
         mc:Ignorable="d"
         Title="Ваши делишки :)" Height="450" Width="400" ResizeMode="NoResize"
-        Icon="/Sources/icon.png">s
+        Icon="/Sources/icon.png">
 
 
     <Window.Resources>
-        <local:DateTimeLessDateConverter x:Key="LessDayConverter" />
-        <local:DateTimeTodayDateConverter x:Key="TodayDayConverter" />
-        <local:DateTimeTmrwDateConverter x:Key="TmrwDayConverter" />
+        <converter:DateTimeLessDateConverter x:Key="LessDayConverter" />
+        <converter:DateTimeTodayDateConverter x:Key="TodayDayConverter" />
+        <converter:DateTimeTmrwDateConverter x:Key="TmrwDayConverter" />
         <Style TargetType="TextBlock" x:Key="LineThroughText">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsFinished}" Value="True">
